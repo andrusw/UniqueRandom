@@ -1,0 +1,15 @@
+Degenerate
+Bernoulli
+Binomial
+Bivariante
+Negative binomial
+Poisson
+Uniform---
+Laplace
+Normal---
+Chi-squared
+Cauchy
+Gamma
+Exponential
+Multivariate normal
+Multivariate Cauchy
