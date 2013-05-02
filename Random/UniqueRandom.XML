@@ -118,13 +118,14 @@
             nrd.NextDouble(-4.0,4.0);
             </example>
         </member>
-        <member name="M:UniqueRandom.NormalDistribution.NextBytes">
+        <member name="M:UniqueRandom.NormalDistribution.NextBytes(System.Byte[])">
             <summary>
             Fills the elements of a specified array of bytes with random numbers.
             </summary>
-            <exception cref="T:System.ArgumentNullException"></exception>
+            <param name="buffer"></param>
+            <exception cref="T:System.ArgumentNullException">buffer is null</exception>
             <remarks>
-            
+            Each element of the array of bytes is set to a random number.
             </remarks>
         </member>
     </members>

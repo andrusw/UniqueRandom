@@ -205,5 +205,27 @@ namespace UniqueRandom
 
         #endregion
 
+        #region Byte Array
+
+        /// <summary>
+        /// Fills the elements of a specified array of bytes with random numbers.
+        /// </summary>
+        /// <param name="buffer"></param>
+        /// <exception cref="ArgumentNullException">buffer is null</exception>
+        /// <remarks>
+        /// Each element of the array of bytes is set to a random number.
+        /// </remarks>
+        public void NextBytes(Byte[] buffer)
+        {
+            if(buffer == null)
+                throw new ArgumentNullException();
+
+            for (int i = 0; i < buffer.Length; i++)
+            {
+                buffer[i] =  (byte)((int)(Math.Abs(NextDouble(-2.55, 2.55)) * 100));
+            }
+        }
+        #endregion
+
     }
 }

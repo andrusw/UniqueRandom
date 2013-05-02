@@ -12,19 +12,13 @@ namespace TestLibrary
         static void Main(string[] args)
         {
             NormalDistribution nrd = new NormalDistribution();
+            Byte[] b = new Byte[10];
+            nrd.NextBytes(b);
 
-            Console.Write("Normal Distribution of Integers: ");
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < b.Length; i++)
             {
-                Console.Write(nrd.NextDouble(0.0).ToString() + ' ');
+                Console.WriteLine(b[i].ToString());
             }
-
-            Console.WriteLine();
-
-            
-
-
-
 
             Console.ReadKey();
         }
