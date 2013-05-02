@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("RandomNormalDistribution")]
+[assembly: AssemblyTitle("Unique Random")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Hewlett-Packard Company")]
-[assembly: AssemblyProduct("RandomNormalDistribution")]
-[assembly: AssemblyCopyright("Copyright © Hewlett-Packard Company 2013")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Unique Random")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

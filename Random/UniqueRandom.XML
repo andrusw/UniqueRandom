@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UniqueRandom</name>
+    </assembly>
+    <members>
+        <member name="T:UniqueRandom.NormalDistribution">
+            <summary>
+            A random number that is distributed on the normal (or Gaussian) distribution. 
+            
+            The center of the bell-shape curve (by default) is centered on the number 0.
+            Range -1 to 1 will hold 68.2689492137% of the returned numbers.
+            Range -2 to 2 will hold 95.4499736104% of the returned numbers.
+            Range -3 to 3 will hold 99.7300203937% of the returned numbers.
+            Range -4 to 4 will hold 99.9936657516% of the returned numbers.
+            Range -5 to 5 will hold 99.9999426697% of the returned numbers.
+            Range -6 to 6 will hold 99.9999998027% of the returned numbers.
+            .
+            .
+            </summary>
+        </member>
+        <member name="M:UniqueRandom.NormalDistribution.#ctor">
+            <summary>
+            Initialize a new instance of UniqueRandom.NormalDistribution class, using a time-dependent default seed value.
+            </summary>
+        </member>
+        <member name="M:UniqueRandom.NormalDistribution.#ctor(System.Int32)">
+            <summary>
+            Initialize a new instance of UniqueRandom.NormalDistribution class, using the specified seed value.
+            </summary>
+            <param name="seed"></param>
+        </member>
+        <member name="M:UniqueRandom.NormalDistribution.GetRandomValue">
+            <summary>
+            Generates the normal distribution with two numbers, which is then randomly selected between the two.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UniqueRandom.NormalDistribution.Next">
+            <summary>
+            Returns a random number.
+            </summary>
+            <returns>A 32-bit signed integer</returns>
+            <remarks>
+            Generates a random numbers whose value ranges from -6 to 6, 99.9999998027% of the time, with the majority of the numbers will fall on 0. 
+            To generate a random number whose value ranges fall within a set bound use NormalDistribution.Next(Int32, Int32) method overload.
+            </remarks>
+            <example>
+            NormalDistribution nrd = new NormalDistribution();
+            nrd.Next();
+            </example>
+        </member>
+        <member name="M:UniqueRandom.NormalDistribution.Next(System.Int32)">
+            <summary>
+            Returns a number less than the specified maximum, without shifting distribution. 
+            </summary>
+            <param name="maxValue">The exclusive upper bound of the random number to be generated.</param>
+            <returns>A 32-bit signed integer less than maxValue.</returns>
+            <example>
+            NormalDistribution nrd = new NormalDistribution();
+            nrd.Next(0);
+            </example>
+        </member>
+        <member name="M:UniqueRandom.NormalDistribution.Next(System.Int32,System.Int32)">
+            <summary>
+            Return a random number within a specific range, without shifting distribution. 
+            </summary>
+            <param name="minValue">The inclusive lower bound of the random number returned.</param>
+            <param name="maxValue">The exclusive upper bound of the random number returned. maxValue must be greater than the minValue.</param>
+            <returns>A 32-bit signed integer greater than or equal to minValue and less than maxValue; that is, the range of return values includes minValue but not maxValue. If minValue equals maxValue, minValue is returned.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">minValue is greater than maxValue.</exception>
+            <remarks>
+            This method will return a range of values with the normal distribution centered on 0. This is the ideal method, if you do not want to handle outliers in your program.
+            </remarks>
+            <example>
+            NormalDistribution nrd = new NormalDistribution();
+            nrd.Next(-4,4);
+            </example>
+        </member>
+        <member name="M:UniqueRandom.NormalDistribution.NextDouble">
+            <summary>
+            Returns a random number.
+            </summary>
+            <returns>A double-precision floating point number.</returns>
+            <remarks>
+            Generates a random numbers whose value ranges from -6.0 to 6.0, 99.9999998027% of the time, with the majority of the numbers will fall on 0. 
+            To generate a random number whose value ranges fall within a set bound use NormalDistribution.NextDouble(Double, Double) method overload.
+            </remarks>
+            <example>
+            NormalDistribution nrd = new NormalDistribution();
+            nrd.NextDouble();
+            </example>
+        </member>
+        <member name="M:UniqueRandom.NormalDistribution.NextDouble(System.Double)">
+            <summary>
+            Returns a number less than the specified maximum, without shifting distribution.
+            </summary>
+            <param name="maxValue">The exclusive upper bound of the random number to be generated.</param>
+            <returns>A double-precision floating point number, less than maxValue.</returns>
+            <example>
+            NormalDistribution nrd = new NormalDistribution();
+            nrd.NextDouble(0.0);
+            </example>
+        </member>
+        <member name="M:UniqueRandom.NormalDistribution.NextDouble(System.Double,System.Double)">
+            <summary>
+            Return a random number within a specific range, without shifting distribution. 
+            </summary>
+            <param name="minValue">The inclusive lower bound of the random number returned.</param>
+            <param name="maxValue">The exclusive upper bound of the random number returned. maxValue must be greater than the minValue.</param>
+            <returns>A double-precision floating point number greater than or equal to minValue and less than maxValue; that is, the range of return values includes minValue but not maxValue. If minValue equals maxValue, minValue is returned.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">minValue is greater than maxValue.</exception>
+            <remarks>
+            This method will return a range of values with the normal distribution centered on 0. This is the ideal method, if you do not want to handle outliers in your program.
+            </remarks>
+            <example>
+            NormalDistribution nrd = new NormalDistribution();
+            nrd.NextDouble(-4.0,4.0);
+            </example>
+        </member>
+        <member name="M:UniqueRandom.NormalDistribution.NextBytes">
+            <summary>
+            Fills the elements of a specified array of bytes with random numbers.
+            </summary>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <remarks>
+            
+            </remarks>
+        </member>
+    </members>
+</doc>
