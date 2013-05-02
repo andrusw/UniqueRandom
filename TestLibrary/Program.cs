@@ -12,12 +12,10 @@ namespace TestLibrary
         static void Main(string[] args)
         {
             NormalDistribution nrd = new NormalDistribution();
-            Byte[] b = new Byte[10];
-            nrd.NextBytes(b);
 
-            for (int i = 0; i < b.Length; i++)
+            for (int i = 0; i < 30; i++)
             {
-                Console.WriteLine(b[i].ToString());
+                Console.WriteLine(nrd.NextDoubleShift(86,86,86.0001).ToString());
             }
 
             Console.ReadKey();

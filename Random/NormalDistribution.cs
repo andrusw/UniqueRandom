@@ -85,6 +85,24 @@ namespace UniqueRandom
         }
 
         /// <summary>
+        /// Returns a random number, shifted to another center.
+        /// </summary>
+        /// <param name="shiftCenter">The new number representing the center of the distribution</param>
+        /// <returns>A 32-bit signed integer</returns>
+        /// <remarks>
+        /// Generates a random numbers whose value ranges from (center-6) --- (center) --- (center+6), 99.9999998027% of the time, where the  with the majority of the numbers will fall on the new center number. 
+        /// To generate a random number whose value ranges fall within a set bound use NormalDistribution.NextShift(Int32, Int32) method overload.
+        /// </remarks>
+        /// <example>
+        /// NormalDistribution nrd = new NormalDistribution();
+        /// nrd.NextShift(100);
+        /// </example>
+        public int NextShift(int shiftCenter)
+        {
+            return Next() + shiftCenter;
+        }
+
+        /// <summary>
         /// Returns a number less than the specified maximum, without shifting distribution. 
         /// </summary>
         /// <param name="maxValue">The exclusive upper bound of the random number to be generated.</param>
@@ -102,6 +120,21 @@ namespace UniqueRandom
             }
 
             return randVal;
+        }
+
+        /// <summary>
+        /// Returns a number less than the specified maximum, shifted center to another number. 
+        /// </summary>
+        /// <param name="shiftCenter">The new number representing the center of the distribution</param>
+        /// <param name="maxValue">The exclusive upper bound of the random number to be generated.</param>
+        /// <returns>A 32-bit signed integer less than maxValue.</returns>
+        /// <example>
+        /// NormalDistribution nrd = new NormalDistribution();
+        /// nrd.Next(100,99);
+        /// </example>
+        public int NextShift(int shiftCenter,int maxValue)
+        {
+            return Next(maxValue - shiftCenter) + shiftCenter; 
         }
 
         /// <summary>
@@ -133,6 +166,26 @@ namespace UniqueRandom
             return randVal;
         }
 
+        /// <summary>
+        /// Return a random number within a specific range, with center distribution shifted to a new number. 
+        /// </summary>
+        /// <param name="shiftCenter">The new number representing the center of the distribution</param>
+        /// <param name="minValue">The inclusive lower bound of the random number returned.</param>
+        /// <param name="maxValue">The exclusive upper bound of the random number returned. maxValue must be greater than the minValue.</param>
+        /// <returns>A 32-bit signed integer greater than or equal to minValue and less than maxValue; that is, the range of return values includes minValue but not maxValue. If minValue equals maxValue, minValue is returned.</returns>
+        /// <exception cref="ArgumentOutOfRangeException">minValue is greater than maxValue.</exception>
+        /// <remarks>
+        /// This method will return a range of values with the normal distribution centered on the user specified value. This is the ideal method, if you do not want to handle outliers in your program.
+        /// </remarks>
+        /// <example>
+        /// NormalDistribution nrd = new NormalDistribution();
+        /// nrd.NextShift(100,96,105);
+        /// </example>
+        public int NextShift(int shiftCenter, int minValue, int maxValue)
+        {
+            return Next(minValue - shiftCenter, maxValue - shiftCenter) + shiftCenter;
+        }
+
         #endregion
 
         #region Double Returns
@@ -155,6 +208,21 @@ namespace UniqueRandom
         }
 
         /// <summary>
+        /// Returns a number less than the specified maximum, shifted center to another number. 
+        /// </summary>
+        /// <param name="shiftCenter">The new number representing the center of the distribution</param>
+        /// <param name="maxValue">The exclusive upper bound of the random number to be generated.</param>
+        /// <returns>A double-precision floating point number.</returns>
+        /// <example>
+        /// NormalDistribution nrd = new NormalDistribution();
+        /// nrd.Next(68.2);
+        /// </example>
+        public double NextDoubleShift(double shiftCenter)
+        {
+            return NextDouble() + shiftCenter;
+        }
+
+        /// <summary>
         /// Returns a number less than the specified maximum, without shifting distribution.
         /// </summary>
         /// <param name="maxValue">The exclusive upper bound of the random number to be generated.</param>
@@ -172,6 +240,21 @@ namespace UniqueRandom
             }
 
             return randVal;
+        }
+
+        /// <summary>
+        /// Returns a number less than the specified maximum, shifted center to another number. 
+        /// </summary>
+        /// <param name="shiftCenter">The new number representing the center of the distribution</param>
+        /// <param name="maxValue">The exclusive upper bound of the random number to be generated.</param>
+        /// <returns>A double-precision floating point number.</returns>
+        /// <example>
+        /// NormalDistribution nrd = new NormalDistribution();
+        /// nrd.NextDouble(86.2,85);
+        /// </example>
+        public double NextDoubleShift(double shiftCenter, double maxValue)
+        {
+            return NextDouble(maxValue - shiftCenter) + shiftCenter; 
         }
 
         /// <summary>
@@ -201,6 +284,26 @@ namespace UniqueRandom
             }
 
             return randVal;
+        }
+
+        /// <summary>
+        /// Return a random number within a specific range, with center distribution shifted to a new number. 
+        /// </summary>
+        /// <param name="shiftCenter">The new number representing the center of the distribution</param>
+        /// <param name="minValue">The inclusive lower bound of the random number returned.</param>
+        /// <param name="maxValue">The exclusive upper bound of the random number returned. maxValue must be greater than the minValue.</param>
+        /// <returns>A double-precision floating point number greater than or equal to minValue and less than maxValue; that is, the range of return values includes minValue but not maxValue. If minValue equals maxValue, minValue is returned.</returns>
+        /// <exception cref="ArgumentOutOfRangeException">minValue is greater than maxValue.</exception>
+        /// <remarks>
+        /// This method will return a range of values with the normal distribution centered on the user specified value. This is the ideal method, if you do not want to handle outliers in your program.
+        /// </remarks>
+        /// <example>
+        /// NormalDistribution nrd = new NormalDistribution();
+        /// nrd.NextShift(86.2,96.5,105.2);
+        /// </example>
+        public double NextDoubleShift(double shiftCenter, double minValue, double maxValue)
+        {
+            return NextDouble(minValue - shiftCenter, maxValue - shiftCenter) + shiftCenter;
         }
 
         #endregion
